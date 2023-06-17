@@ -15,7 +15,7 @@ const Label = ({
     return (
         <label
             data-testid={testId}
-            className={`${styles["label-default"]} ${className} ${(type == "header" ? styles['header-label'] : styles['card-label'])}`}
+            className={`${styles["label-default"]} ${className} ${(type == "subtitle" ? styles['subtitle'] : styles['card-title'])}`}
             style={style}
         >
             {children}
