@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 
-const DetailPanel: FC = (selectedId) => {
+const DetailPanel: FC = () => {
     return (
         <>
 

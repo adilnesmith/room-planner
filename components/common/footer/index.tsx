@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { FooterProps } from 'lib/@types/common'
 import styles from './Footer.module.scss';
-import { COLUMN_1, COLUMN_2, COLUMN_3 } from 'lib/constants/Footer';
+import { COLUMN_1, COLUMN_2 } from 'lib/constants/Footer';
 const Footer: FC<FooterProps> = () => {
     return (
         <footer className={styles.wrapper}>
