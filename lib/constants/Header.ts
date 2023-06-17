@@ -1,1 +1,1 @@
-export const NAVIGATION = 'Navigation section';
+export const PAGE_TITLE = 'Room planner';

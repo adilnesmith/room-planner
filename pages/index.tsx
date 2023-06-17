@@ -3,7 +3,6 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Header from 'components/common/header'
 import MainBody from 'components/main-body'
-import Footer from 'components/common/footer'
 import { APP_TITLE, APP_DESCRIPTION, APP_AUTHOR } from 'lib/constants'
 
 const Home: NextPage = () => {
@@ -17,7 +16,6 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <MainBody />
-      <Footer />
     </div >
   )
 }

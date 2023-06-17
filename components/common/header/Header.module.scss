@@ -1,41 +1,10 @@
 @import "styles/variables.scss";
 
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 60px;
-  &__columns {
-    display: flex;
-    &__logo {
-      border: 1px solid #000;
-      flex: 10%;
-    }
-    &__navigation {
-      border: 1px solid #000;
-      flex: 80%;
-    }
-    &__search {
-      border: 1px solid #000;
-      flex: 10%;
-    }
-  }
-}
-
-@media (max-width: $tablet) {
-  .wrapper {
-    &__columns {
-      flex-direction: column;
-      &__logo {
-        flex: 100%;
-      }
-      &__navigation {
-        flex: 100%;
-      }
-      &__search {
-        flex: 100%;
-      }
-    }
+.header {
+  &__title {
+    border-top: 3px solid #7BA398;
+    border-bottom: 3px solid #7BA398;
+    text-transform: uppercase;
+    text-align: center;
   }
 }

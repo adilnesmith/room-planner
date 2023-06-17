@@ -1,12 +1,12 @@
 import { FC } from 'react'
 import { HeaderProps } from 'lib/@types/common'
-import { NAVIGATION } from 'lib/constants/Header';
+import { PAGE_TITLE } from 'lib/constants/Header';
 import styles from './Header.module.scss'
 
 const Header: FC<HeaderProps> = ({ }) => {
     return (
-        <header className={styles.wrapper}>
-            <nav data-testid="navigation" className={styles.wrapper__columns__navigation}>{NAVIGATION}</nav>
+        <header className={styles.header}>
+            <h1 className={styles.header__title}>{PAGE_TITLE}</h1>
         </header >
     )
 }
