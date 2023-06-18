@@ -8,9 +8,10 @@ import { BTN_DELETE_TEXT, BTN_EDIT_TEXT } from 'lib/constants/Card'
 import { Room } from 'lib/@types/common'
 interface CardProps extends Room {
     onDelete: () => void;
+    onStatusChange: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ _id, title, description, imageURL, desks, isBooked, onDelete }) => {
+const Card: React.FC<CardProps> = ({ _id, title, description, imageURL, desks, isBooked, onDelete, onStatusChange }) => {
     return (
         <div className={styles.wrapper}>
             <img
@@ -29,7 +30,7 @@ const Card: React.FC<CardProps> = ({ _id, title, description, imageURL, desks, i
                     <Button buttonText={BTN_EDIT_TEXT} className={styles.wrapper__actions__controls__edit}></Button>
                     <Button buttonText={BTN_DELETE_TEXT} className={styles.wrapper__actions__controls__delete} onClick={onDelete}></Button>
                 </div>
-                {(!desks) && (<Button buttonText={isBooked ? "cancel booking" : "book"} className={styles.wrapper__actions__controls__booking}></Button>)}
+                {(!desks) && (<Button buttonText={isBooked ? "cancel booking" : "book"} className={styles.wrapper__actions__controls__booking} onClick={onStatusChange}></Button>)}
             </div>
         </div >
     )

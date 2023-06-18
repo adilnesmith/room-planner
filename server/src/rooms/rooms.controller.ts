@@ -11,7 +11,7 @@ import {
   Param,
   Post,
   Query,
-  UnauthorizedException,
+  Patch
 } from '@nestjs/common';
 import { RoomService } from './rooms.service';
 import { Room } from './rooms.model';
@@ -97,4 +97,30 @@ export class RoomController {
       throw new NotFoundException('Room not found');
     }
   }
+
+  @Patch(':id/status')
+  async toggleBookingStatus(@Param('id') id: string): Promise<any> {
+    try {
+      const updatedRoom = await this.roomService.toggleBookingStatus(id);
+      if (updatedRoom) {
+        return {
+          statusCode: HttpStatus.OK,
+          message: 'Booking status toggled successfully',
+          data: updatedRoom,
+        };
+      } else {
+        throw new NotFoundException('Room not found');
+      }
+    } catch (error) {
+      throw new HttpException(
+        {
+          statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+          message: 'Failed to toggle booking status',
+          error: error.message,
+        },
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
 }

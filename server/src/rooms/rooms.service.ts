@@ -80,4 +80,12 @@ export class RoomService {
   async findById(roomId: string): Promise<Room | null> {
     return this.roomModel.findById(roomId).exec();
   }
+  async toggleBookingStatus(id: string): Promise<Room> {
+    const room = await this.roomModel.findById(id).exec();
+    if (!room) {
+      throw new NotFoundException('Room not found');
+    }
+    room.isBooked = !room.isBooked; // Toggle the booking status
+    return room.save();
+  }
 }

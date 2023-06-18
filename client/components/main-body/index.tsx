@@ -26,18 +26,34 @@ const MainBody: FC<MainBodyProps> = () => {
                 setError(error.message);
             });
     }, []);
+
     const handleDelete = (roomId: string | undefined) => {
         axios
             .delete(`${API_DOMAIN}${ENDPOINTS.DELETE.deleteRoom(roomId)}`)
             .then(() => {
-                // Handle successful deletion, e.g., remove the deleted room from the items list
                 setItems((prevItems) => prevItems.filter((item) => item._id !== roomId));
             })
             .catch((error) => {
-                // Handle error
                 console.error('Error deleting room:', error);
             });
     };
+
+    const handleStatus = (roomId: string | undefined) => {
+        axios
+            .patch(`${API_DOMAIN}${ENDPOINTS.PATCH.updateStatus(roomId)}`)
+            .then(() => {
+                // Update the state variable to trigger re-render
+                setItems((prevItems) =>
+                    prevItems.map((item) =>
+                        item._id === roomId ? { ...item, isBooked: !item.isBooked } : item
+                    )
+                );
+            })
+            .catch((error) => {
+                console.error('Error updating room status:', error);
+            });
+    };
+
     return (
         <div className={styles.wrapper}>
             {items.map((item) => (
@@ -49,6 +65,7 @@ const MainBody: FC<MainBodyProps> = () => {
                     imageURL={item.imageURL}
                     isBooked={item.isBooked}
                     onDelete={() => handleDelete(item._id)}
+                    onStatusChange={() => handleStatus(item._id)}
                 />
             ))}
         </div>

@@ -4,7 +4,9 @@ const ENDPOINTS = {
   },
   POST: {},
   PUT: {},
-  PATCH: {},
+  PATCH: {
+    updateStatus: (roomId: string | undefined) => `/rooms/${roomId}/status`
+  },
   DELETE: {
     deleteRoom: (roomId: string | undefined) => `/rooms/${roomId}`
   },
