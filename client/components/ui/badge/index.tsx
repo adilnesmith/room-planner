@@ -15,10 +15,10 @@ const Badge = ({
     return (
         <p
             data-testid={testId}
-            className={`${className} ${styles.badge} ${(type == "booked" ? styles.booked : styles.free)}`}
+            className={`${className} ${styles.badge} ${(type == "isBooked" ? styles.booked : styles.free)}`}
             style={style}
         >
-            {(type == "booked") ? "Booked" : "Free"}
+            {(type == "isBooked") ? "Booked" : "Free"}
         </p>
     );
 };

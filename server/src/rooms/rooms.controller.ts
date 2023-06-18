@@ -10,10 +10,8 @@ import {
   NotFoundException,
   Param,
   Post,
-  Put,
   Query,
   UnauthorizedException,
-  UsePipes,
 } from '@nestjs/common';
 import { RoomService } from './rooms.service';
 import { Room } from './rooms.model';

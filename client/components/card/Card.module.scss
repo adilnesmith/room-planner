@@ -11,6 +11,13 @@
 
     &__description {
         flex: 60%;
+
+        &__text {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+        }
     }
 
     &__actions {
