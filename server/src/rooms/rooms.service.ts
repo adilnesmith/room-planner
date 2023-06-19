@@ -74,8 +74,13 @@ export class RoomService {
     }
     return deletedRoom;
   }
-  async findByTitle(title: string): Promise<Room | null> {
-    return this.roomModel.findOne({ title }).exec();
+  async findByTitle(title: string): Promise<Room[]> {
+    const regex = new RegExp(title, 'i'); // 'i' flag for case-insensitive search
+    const rooms = await this.roomModel.find({ title: regex }).exec();
+    if (rooms.length === 0) {
+      throw new NotFoundException('No rooms found with the searched title');
+    }
+    return rooms;
   }
   async findById(roomId: string): Promise<Room | null> {
     return this.roomModel.findById(roomId).exec();

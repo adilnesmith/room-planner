@@ -88,6 +88,10 @@ export class RoomController {
       );
     }
   }
+  @Get('title/:title')
+  async findByTitle(@Param('title') title: string): Promise<Room[]> {
+    return this.roomService.findByTitle(title);
+  }
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
   async delete(@Param('id') id: string): Promise<void> {
