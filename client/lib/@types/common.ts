@@ -1,12 +1,9 @@
 
 export type HeaderProps = {
-
-}
-export type FooterProps = {
-
+    onSearch: Function
 }
 export type MainBodyProps = {
-
+    searchValue: string
 }
 export interface Room {
     _id?: string

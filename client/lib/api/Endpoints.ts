@@ -1,6 +1,7 @@
 const ENDPOINTS = {
   GET: {
     rooms: '/rooms',
+    search: (searchTerm: string | undefined) => `/rooms/title/${searchTerm}`
   },
   POST: {},
   PUT: {},

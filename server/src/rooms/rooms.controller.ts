@@ -89,9 +89,28 @@ export class RoomController {
     }
   }
   @Get('title/:title')
-  async findByTitle(@Param('title') title: string): Promise<Room[]> {
-    return this.roomService.findByTitle(title);
+  async findByTitle(@Param('title') title: string): Promise<any> {
+    try {
+      const rooms = await this.roomService.findByTitle(title);
+      return {
+        statusCode: HttpStatus.OK,
+        message: 'Rooms retrieved successfully',
+        data: {
+          items: rooms,
+        },
+      };
+    } catch (error) {
+      throw new HttpException(
+        {
+          statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+          message: 'Failed to retrieve rooms',
+          error: error.message,
+        },
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
+
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
   async delete(@Param('id') id: string): Promise<void> {

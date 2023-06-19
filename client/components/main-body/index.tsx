@@ -6,7 +6,7 @@ import axios from 'axios';
 import { API_DOMAIN } from 'lib/general-config';
 import { ENDPOINTS } from 'lib/api';
 
-const MainBody: FC<MainBodyProps> = () => {
+const MainBody: FC<MainBodyProps> = ({ searchValue }) => {
     const [items, setItems] = useState<Room[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -14,9 +14,12 @@ const MainBody: FC<MainBodyProps> = () => {
     useEffect(() => {
         setLoading(true);
         setError(null);
-
+        let endpoint = API_DOMAIN + ENDPOINTS.GET.rooms;
+        if (searchValue) {
+            endpoint = `${API_DOMAIN}${ENDPOINTS.GET.search(searchValue)}`
+        }
         axios
-            .get(`${API_DOMAIN}${ENDPOINTS.GET.rooms}`)
+            .get(endpoint)
             .then((response) => {
                 setItems(response?.data?.data?.items);
                 setLoading(false);
@@ -25,7 +28,7 @@ const MainBody: FC<MainBodyProps> = () => {
                 setLoading(false);
                 setError(error.message);
             });
-    }, []);
+    }, [searchValue]);
 
     const handleDelete = (roomId: string | undefined) => {
         axios
@@ -56,20 +59,29 @@ const MainBody: FC<MainBodyProps> = () => {
 
     return (
         <div className={styles.wrapper}>
-            {items.map((item) => (
-                <Card
-                    key={item._id}
-                    title={item.title}
-                    description={item.description}
-                    desks={item.desks}
-                    imageURL={item.imageURL}
-                    isBooked={item.isBooked}
-                    onDelete={() => handleDelete(item._id)}
-                    onStatusChange={() => handleStatus(item._id)}
-                />
-            ))}
+            {loading ? (
+                <p>Loading...</p>
+            ) : error ? (
+                <p>Error: {error}</p>
+            ) : items ? (
+                items.map((item) => (
+                    <Card
+                        key={item._id}
+                        title={item.title}
+                        description={item.description}
+                        desks={item.desks}
+                        imageURL={item.imageURL}
+                        isBooked={item.isBooked}
+                        onDelete={() => handleDelete(item._id)}
+                        onStatusChange={() => handleStatus(item._id)}
+                    />
+                ))
+            ) : (
+                <p>No items to display</p>
+            )}
         </div>
     );
+
 };
 
 export default MainBody;
