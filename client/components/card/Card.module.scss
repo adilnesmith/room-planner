@@ -9,6 +9,12 @@
         flex: 30%;
         border-radius: 5px;
         margin-right: 15px;
+
+        &__grey {
+            opacity: 0.4;
+            filter: alpha(opacity=40);
+            background-color: #000;
+        }
     }
 
     &__description {
@@ -52,4 +58,8 @@
 
 .wrapper:last-child {
     border: none;
+}
+
+.wrapper:hover {
+    background-color: #cfcfcf;
 }

@@ -15,7 +15,7 @@ const Card: React.FC<CardProps> = ({ _id, title, description, imageURL, desks, i
     return (
         <div className={styles.wrapper}>
             <img
-                className={styles.wrapper__image}
+                className={`${styles.wrapper__image} ${isBooked ? styles.wrapper__image__grey : ''}`}
                 src={"https://www.google.com/url?sa=i&url=https%3A%2F%2Fencrypted-tbn0.gstatic.com%2Flicensed-image%3Fq%3Dtbn%3AANd9GcRjixVGPm3CTkLwm48wHT_Cop3mDrARsPPpSc4VjWZ0Uett4LDypWWlrHVtkte-Rm0CsRtb6BOQKAXvAFo&psig=AOvVaw0kwx-FYsdfJ9VMt7OrtQLe&ust=1687157470365000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKibn7-dzP8CFQAAAAAdAAAAABAE"}
                 alt="Picture of the author"
             />
