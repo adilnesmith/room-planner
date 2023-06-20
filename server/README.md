@@ -1,73 +1,73 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Room Management Backend
+This is the backend component of the Room Management application built with Nest.js and MongoDB.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Prerequisites
+Make sure you have the following installed on your system:
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+- Node.js (version >= 12)
+- MongoDB (running instance)
+# Getting Started
+Clone the repository:
+1. Clone the repository or download the project files.
+    ```
+    https://github.com/adilnesmith/room-planner.git
+    ```
+2. Navigate to the project directory.
+    ```
+    cd room-planner/server
+    ```
+3. Install the dependencies using npm or yarn.
+    ```
+    npm install
+    ```
+    OR
 
-## Description
+    ```
+    yarn
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+4. Configure the MongoDB connection:
 
-## Installation
+Open the `mongo.config.ts` file and update the MongoDB connection URL.
 
-```bash
-$ yarn install
+`uri=mongodb://localhost:27017/room_planner`
+
+5. Start the server:
+```
+npm run start
+```
+The server will start running on http://localhost:4#000.
+
+# API Endpoints
+`GET /rooms`:  Fetches a list of all rooms.
+
+`POST /rooms`: Creates a new room.
+
+`GET /rooms/:id`: Retrieves details of a specific room.
+
+`GET /rooms/title`:title: Search room by title.
+
+`DELETE /rooms/:id`: Deletes a specific room.
+
+`PATCH /rooms/:id/status`: Toggle the status of booking
+
+# Folder Structure
+The folder structure of the backend is as follows:
+```
+├── src
+│   ├── rooms
+│   │   |   ├── rooms.controller.ts
+│   │   |   ├── rooms.modal.ts
+│   │   |   ├── rooms.module.ts
+│   │   |   ├── rooms.service.ts
+
 ```
 
-## Running the app
-
-```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+Testing
+You can run the tests using the following command:
 ```
-
-## Test
-
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+npm run test
 ```
+# License
+This project is proprietary and not open source. 
+All rights reserved.
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).

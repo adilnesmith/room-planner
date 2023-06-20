@@ -103,15 +103,16 @@ This folder structure helps maintain a clear separation of concerns, promotes co
 │   │   │   │   ├── button
 │   │   │   │   ├── label
 │   │   │   │   ├── search
-│   │   |   ├── lib
-│   │   │   │   ├── @types
-│   │   │   │   ├── constants
-│   │   │   │   ├── general-config.ts
-│   │   |   ├── pages
+├── lib
+│   ├── @types
+│   │   ├── constants
+│   │   ├── general-config.ts
+├── pages
 ...
 
 ```
 # License
-This project is proprietary and not open source. All rights reserved.
+This project is proprietary and not open source. 
+All rights reserved.
 
 
