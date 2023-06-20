@@ -60,27 +60,27 @@ That's it! With Node.js and a package manager installed, you should have the nec
 # Folder Structure
 The project follows a structured folder organization to ensure a modular and organized codebase. Below is an overview of the main folders and their purposes:
 
-**components:** Contains reusable UI components used throughout the application.
+- **components:** Contains reusable UI components used throughout the application.
 
-**components/card:** Includes the implementation of the List component, responsible for displaying information in a List format.
+- **components/card:** Includes the implementation of the List component, responsible for displaying information in a List format.
 
-**components/common:** Contains common components shared across multiple pages or sections of the application.
+- **components/common:** Contains common components shared across multiple pages or sections of the application.
 
-**components/common/header:** Implements the Header component, which represents the application heading/title.
+- **components/common/header:** Implements the Header component, which represents the application heading/title.
 
-**components/common/main-body:** Contains the MainBody component, responsible for the main content area of the application.
+- **components/common/main-body:** Contains the MainBody component, responsible for the main content area of the application.
 
-**components/common/ui:** Holds various UI components such as badges, buttons, labels, and search components.
+- **components/common/ui:** Holds various UI components such as badges, buttons, labels, and search components.
 
-**components/lib:** Includes library-specific code or configuration files.
+- **components/lib:** Includes library-specific code or configuration files.
 
-**components/lib/@types:** Contains TypeScript type definitions.
+- **components/lib/@types:** Contains TypeScript type definitions.
 
-**components/lib/constants:** Holds constant values used throughout the application.
+- **components/lib/constants:** Holds constant values used throughout the application.
 
-**components/lib/general-config.ts:** Implements general configuration settings used across the project.
+- **components/lib/general-config.ts:** Implements general configuration settings used across the project.
 
-**components/pages:** Contains page-specific components.
+- **components/pages:** Contains page-specific components.
 
 This folder structure helps maintain a clear separation of concerns, promotes code reusability, and facilitates easier navigation and maintenance of the codebase.
 
