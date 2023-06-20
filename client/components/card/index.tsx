@@ -17,13 +17,12 @@ const Card: React.FC<CardProps> = ({ _id, title, description, imageURL, desks, i
             <img
                 className={`${styles.wrapper__image} ${isBooked ? styles.wrapper__image__grey : ''}`}
                 src={imageURL}
-                alt="Picture of the author"
             />
             <div className={styles.wrapper__description}>
                 <Label type='card-title' test-dataid={"card-title"} children={title} />
                 <p className={styles.wrapper__description__text}>{description}</p>
                 <Badge type={isBooked ? "isBooked" : "Free"} />
-                {desks && (<p>Desks: {desks}</p >)}
+                {desks > 0 && (<p>Desks: {desks}</p >)}
             </div>
             <div className={styles.wrapper__actions}>
                 <div className={styles.wrapper__actions__controls}>

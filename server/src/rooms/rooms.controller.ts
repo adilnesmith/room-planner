@@ -22,6 +22,12 @@ export class RoomController {
   @Post()
   async create(@Body() room: Room): Promise<any> {
     try {
+      if (room.desks && room.desks > 0 && room.isBooked) {
+        return {
+          statusCode: HttpStatus.BAD_REQUEST,
+          message: 'You can not book a room if it has desks inside',
+        };
+      }
       const createdRoom = await this.roomService.create(room);
       return {
         statusCode: HttpStatus.CREATED,
@@ -39,6 +45,7 @@ export class RoomController {
       );
     }
   }
+
   @Get()
   async findAll(
     @Query('sort') sort: string,
