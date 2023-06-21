@@ -14,6 +14,10 @@ interface CardProps extends Room {
 const Card: React.FC<CardProps> = ({ _id, title, description, imageURL, desks, isBooked, onDelete, onStatusChange }) => {
     return (
         <div className={styles.wrapper}>
+            {/* I am not using next <Image/> because it requires the domain host name
+                 and i dont have specific domain name yet. Also, the alt attribute should be in
+                <img/> i cannot add here because that require some backend modification
+            */}
             <img
                 className={`${styles.wrapper__image} ${isBooked ? styles.wrapper__image__grey : ''}`}
                 src={imageURL}
