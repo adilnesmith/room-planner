@@ -1,13 +1,21 @@
-FROM node:14-alpine AS development
-ENV NODE_ENV development
-# Add a work directory
+# Use the official Node.js 14 LTS image as the base image
+FROM node:16-alpine
+
+# Set the working directory in the container
 WORKDIR /app
-# Cache and Install dependencies
+
+# Install app dependencies
 COPY package.json .
-RUN npm install
-# Copy app files
+RUN yarn install --production
+
+# Copy the app's source code
 COPY . .
-# Expose port
+
+# Build the Next.js app
+RUN yarn build
+
+# Expose the required port (e.g., 3000 for Next.js)
 EXPOSE 3000
+
 # Start the app
-CMD [ "npm", "run" , "dev"]
+CMD ["yarn", "start"]
