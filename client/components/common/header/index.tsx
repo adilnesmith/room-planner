@@ -22,7 +22,7 @@ const Header: FC<HeaderPropsWithSearch> = ({ onSearch }) => {
         <header className={styles.header}>
             <h1 className={styles.header__title}>{PAGE_TITLE}</h1>
             <div className={styles.header__actions}>
-                <Label type="subtitle" test-dataid={"subtitle"}>{PAGE_SUBTITLE}</Label>
+                <Label type="subtitle">{PAGE_SUBTITLE}</Label>
                 <Button buttonText={HEADER_BTN_TEXT} className={styles.header__actions__button} />
             </div>
             <Search testId={"search"} placeholder={SEARCH_PLACEHOLDER} onSearch={handleSearch} />
