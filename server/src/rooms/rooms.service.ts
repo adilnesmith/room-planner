@@ -93,4 +93,14 @@ export class RoomService {
     room.isBooked = !room.isBooked; // Toggle the booking status
     return room.save();
   }
+  async createBulk(rooms: Room[]): Promise<Room[]> {
+    const createdRooms: Room[] = [];
+
+    for (const room of rooms) {
+      const createdRoom = await this.create(room);
+      createdRooms.push(createdRoom);
+    }
+
+    return createdRooms;
+  }
 }

@@ -152,5 +152,27 @@ export class RoomController {
       );
     }
   }
+  @Post('bulk')
+  async createBulk(@Body() rooms: Room[]): Promise<any> {
+    try {
+      // Perform bulk creation logic here
+      const createdRooms = await this.roomService.createBulk(rooms);
+
+      return {
+        statusCode: HttpStatus.CREATED,
+        message: 'Rooms created successfully',
+        data: createdRooms,
+      };
+    } catch (error) {
+      throw new HttpException(
+        {
+          statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+          message: 'Failed to create rooms in bulk',
+          error: error.message,
+        },
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
 
 }
