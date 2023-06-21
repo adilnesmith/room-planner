@@ -28,6 +28,9 @@ Clone the repository:
     ```
     docker compose up
     ```
+    OR 
+NOTE: If you dont have docker installed, just see the readme in `client` and `server` folders and follow the steps mentioned .
+
 # Configuration
 As the creation of room is out of scope, so an API endpoint (`/rooms/bulk`) has been created to create the rooms in one go using following cURL
 ```
