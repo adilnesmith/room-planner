@@ -29,7 +29,21 @@ Clone the repository:
     docker compose up
     ```
 # Configuration
-
+As the creation of room is out of scope, so an API endpoint (`/rooms/bulk`) has been created to create the rooms in one go using following cURL
+```
+curl --location 'http://localhost:4000/rooms/bulk' \
+--header 'Content-Type: application/json' \
+--data '[{
+    "title":"title of the room",
+    "description":"description of the room",
+    "isBooked":true,
+    "desks":0,
+    "imageURL":"https://example.com/image"
+},{
+    ...
+}]'
+```
+add multiple objects in array and see the results on `localhost:3000`
 
 # Features
 The Room Planner application currently supports the following features:

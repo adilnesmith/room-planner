@@ -50,6 +50,8 @@ The server will start running on http://localhost:4#000.
 
 `PATCH /rooms/:id/status`: Toggle the status of booking
 
+`POST /rooms/bulk`: To create the rooms in bulk (Not in scope but I have created this so person can easily upload the dummy content)
+
 # Folder Structure
 The folder structure of the backend is as follows:
 ```
