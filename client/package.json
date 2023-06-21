@@ -21,8 +21,8 @@
     "sass": "^1.52.3"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "5.16.4",
-    "@testing-library/react": "14.0.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "14.4.3",
     "@types/node": "18.0.0",
     "@types/react": "18.0.28",

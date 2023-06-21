@@ -23,7 +23,7 @@ const Card: React.FC<CardProps> = ({ _id, title, description, imageURL, desks, i
                 src={imageURL}
             />
             <div className={styles.wrapper__description}>
-                <Label type='card-title' test-dataid={"card-title"} children={title} />
+                <Label type='card-title' children={title} />
                 <p className={styles.wrapper__description__text}>{description}</p>
                 <Badge type={isBooked ? "isBooked" : "Free"} />
                 {desks > 0 && (<p>Desks: {desks}</p >)}
