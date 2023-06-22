@@ -155,7 +155,6 @@ export class RoomController {
   @Post('bulk')
   async createBulk(@Body() rooms: Room[]): Promise<any> {
     try {
-      // Perform bulk creation logic here
       const createdRooms = await this.roomService.createBulk(rooms);
 
       return {

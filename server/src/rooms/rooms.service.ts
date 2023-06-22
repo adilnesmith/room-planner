@@ -90,7 +90,7 @@ export class RoomService {
     if (!room) {
       throw new NotFoundException('Room not found');
     }
-    room.isBooked = !room.isBooked; // Toggle the booking status
+    room.isBooked = !room.isBooked;
     return room.save();
   }
   async createBulk(rooms: Room[]): Promise<Room[]> {
