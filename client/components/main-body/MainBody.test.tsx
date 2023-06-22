@@ -4,7 +4,7 @@ import MainBody from './index';
 import { API_DOMAIN } from 'lib/general-config';
 import { ENDPOINTS } from 'lib/api';
 
-jest.mock('axios'); // Mock the axios module
+jest.mock('axios');
 
 describe('MainBody', () => {
     const mockGet = jest.spyOn(axios, 'get');

@@ -18,8 +18,7 @@ const MainBody: FC<MainBodyProps> = ({ searchValue }) => {
         if (searchValue) {
             endpoint = `${API_DOMAIN}${ENDPOINTS.GET.search(searchValue)}`
         }
-        axios
-            .get(endpoint)
+        axios.get(endpoint)
             .then((response) => {
                 setItems(response?.data?.data?.items);
                 setLoading(false);
@@ -31,8 +30,7 @@ const MainBody: FC<MainBodyProps> = ({ searchValue }) => {
     }, [searchValue]);
 
     const handleDelete = (roomId: string | undefined) => {
-        axios
-            .delete(`${API_DOMAIN}${ENDPOINTS.DELETE.deleteRoom(roomId)}`)
+        axios.delete(`${API_DOMAIN}${ENDPOINTS.DELETE.deleteRoom(roomId)}`)
             .then(() => {
                 setItems((prevItems) => prevItems.filter((item) => item._id !== roomId));
             })
@@ -42,8 +40,7 @@ const MainBody: FC<MainBodyProps> = ({ searchValue }) => {
     };
 
     const handleStatus = (roomId: string | undefined) => {
-        axios
-            .patch(`${API_DOMAIN}${ENDPOINTS.PATCH.updateStatus(roomId)}`)
+        axios.patch(`${API_DOMAIN}${ENDPOINTS.PATCH.updateStatus(roomId)}`)
             .then(() => {
                 // Update the state variable to trigger re-render
                 setItems((prevItems) =>
