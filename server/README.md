@@ -65,10 +65,7 @@ The folder structure of the backend is as follows:
 ```
 
 Testing
-You can run the tests using the following command:
-```
-npm run test
-```
+Due to lack of time I cannot manage to write tests for backend
 # License
 This project is proprietary and not open source. 
 All rights reserved.
